@@ -1,0 +1,100 @@
+$contairer-width: 1160px;
+$border: 1px solid rgb(25, 27, 27);
+
+@mixin border-list {
+    $border: 1px solid rgb(25, 27, 27);
+    border-left: $border;
+    border-bottom: $border;
+    border-right: $border;
+}
+
+@mixin list-default {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: floralwhite;
+}
+
+.header {
+    background-color: aliceblue;
+    padding: 20px;
+    
+    border: $border;
+}
+
+.container {
+    max-width: $contairer-width;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 25px;
+}
+
+.ul-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+    border-right: $border;
+    background-color: floralwhite;
+
+    @include list-default;
+
+    li {
+        flex: 3;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px;
+        min-width: 89px;
+        margin-right: -1px;
+        
+        @include border-list;
+    }
+
+}
+
+.main {
+    padding: 10px 30px;
+    background-color: #ECE1D8;
+
+    .task {
+        background-color: darkgrey;
+
+        .poster {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .options-list {
+        @include list-default;
+        background-color: darkgrey;
+    }
+
+    .progress-bar {
+        margin: 20px auto 0;
+        width: 80%;
+        height: 20px;
+        background-color: darkgrey;
+    }
+
+    .main__centered {
+        justify-content: center;
+    }
+    
+}
