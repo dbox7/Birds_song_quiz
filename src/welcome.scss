@@ -1,0 +1,25 @@
+.welcome {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(50, 50, 50, 0.8);
+}
+
+.welcome__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: red;
+}
+
+.welcome__button {
+    margin-bottom: 15px;
+}
