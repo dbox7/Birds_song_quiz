@@ -20,6 +20,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/db_detective.js":
+/*!*****************************!*\
+  !*** ./src/db_detective.js ***!
+  \*****************************/
+/***/ (() => {
+
+eval("const detectives = [      \r\n    {\r\n    id: 1,\r\n    name: 'Sherlock',\r\n    mark: 'Corvus corax',\r\n    description: 'шерлок',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 2,\r\n    name: 'Cod da vinchi',\r\n    mark: 'Corvus corax',\r\n    description: 'код да винчи',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 3,\r\n    name: 'девушка с татуировкой дракона',\r\n    mark: 'Corvus corax',\r\n    description: 'девушка с тату',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 4,\r\n    name: 'исчезнувшая',\r\n    mark: 'Corvus corax',\r\n    description: 'исчезнувшая',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 5,\r\n    name: 'зодиак',\r\n    mark: 'Corvus corax',\r\n    description: 'зодиак',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 6,\r\n    name: 'пленницы',\r\n    mark: 'Corvus corax',\r\n    description: 'пленницы',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 7,\r\n    name: 'смерть на ниле',\r\n    mark: 'Corvus corax',\r\n    description: 'агата кристи',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 8,\r\n    name: 'вестрянная река',\r\n    mark: 'Corvus corax',\r\n    description: 'вестрянная река',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 9,\r\n    name: 'остров проклятых',\r\n    mark: 'Corvus corax',\r\n    description: 'остров',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n    {\r\n    id: 10,\r\n    name: 'дьявол в деталях',\r\n    mark: 'Corvus corax',\r\n    description: 'дьявол',\r\n    image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',\r\n    audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'\r\n    },\r\n]\n\n//# sourceURL=webpack://movie_quiz/./src/db_detective.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -27,7 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ \"./src/style.scss\");\n/* harmony import */ var _welcome_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./welcome.js */ \"./src/welcome.js\");\n/* harmony import */ var _welcome_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_welcome_js__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://movie_quiz/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ \"./src/style.scss\");\n/* harmony import */ var _welcome_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./welcome.js */ \"./src/welcome.js\");\n/* harmony import */ var _welcome_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_welcome_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _db_detective_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./db_detective.js */ \"./src/db_detective.js\");\n/* harmony import */ var _db_detective_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_db_detective_js__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\nconst query = []\r\n\r\nwhile (query.length < 10) {\r\n    const res = Math.ceil(Math.random()*10);\r\n    if (!query.includes(res)) {\r\n        query.push(res);\r\n    };  \r\n}\r\n\r\nconsole.log(query);\n\n//# sourceURL=webpack://movie_quiz/./src/index.js?");
 
 /***/ }),
 
@@ -37,7 +47,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \************************/
 /***/ (() => {
 
-eval("const welcome = document.getElementsByClassName('welcome');\r\nconst welcome__button = document.getElementsByClassName('welcome__button');\r\n\r\nfunction welcome__button_click() {\r\n    welcome.classList.add('disable');\r\n}\r\n\r\nwelcome__button.addEventListener('click', welcome__button_click)\n\n//# sourceURL=webpack://movie_quiz/./src/welcome.js?");
+eval("const welcome = document.getElementsByClassName('welcome');\r\nconst welcome__button = document.getElementsByClassName('welcome__button');\r\n\r\nfunction welcome__button_click() {\r\n    welcome[0].classList.add('disable');\r\n}\r\n\r\nconsole.log(welcome);\r\nwelcome__button[0].addEventListener('click', welcome__button_click);\n\n//# sourceURL=webpack://movie_quiz/./src/welcome.js?");
 
 /***/ })
 
