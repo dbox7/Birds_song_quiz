@@ -3,8 +3,9 @@ import './welcome.js'
 import Data from './db_detective.js'
 
 const options_list = document.getElementsByClassName('option-list');
-const step = 0;
-const winOption = getRandomWinOption(step);
+const options = document.querySelectorAll('.option');
+const next_button = document.querySelector('.next');
+let step = 0;
 
 const query = []
 
@@ -19,17 +20,36 @@ function getRandomWinOption(step) {
     return Data[step][Math.ceil(Math.random()*6)];
 }
 
+let winOption = getRandomWinOption(step);
+
 function optionClick(event) {
+    //event.target.classList.add('button_active');
     event.target.innerHTML == winOption.name ? 
         event.target.classList.add('right') :
         event.target.classList.add('wrong');
+    // event.target.addEventListener('transitionend', () => {
+        
+    // })  
+}
+
+function nextClick() {
+    step++;
+    winOption = getRandomWinOption(step);
+    for (let i = 0; i < 6; i++) {
+        options[i].classList.remove('right');
+        options[i].classList.remove('wrong');
+        options[i].innerHTML = Data[step][i].name;
+    }
+    
 }
 
 function init() {    
-    const options = document.querySelectorAll('.option');
 
     options.forEach(item => item.addEventListener('click', optionClick));
     console.log(winOption);
+    console.log(next_button);
+
+    next_button.addEventListener('click', nextClick);
 }
 
 init();

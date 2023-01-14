@@ -28,7 +28,7 @@ body {
     font-size: 24px;
     background-color: #ECE1D8;
     box-shadow: 5px 5px rgb(25, 27, 27);
-    transition: 1s;
+    transition: box-shadow 0.1s ease-in-out, transform 0.01s ease-in;
 }
 
 .button:active {
@@ -37,12 +37,12 @@ body {
     //box-shadow: inset 3px 3px rgb(25, 27, 27);
 }
 
-.button:visited {
-    box-shadow: inset 3px 3px rgb(25, 27, 27);
-}
-
 .disable {
     display: none;
+}
+
+.active {
+    background-color: rgb(224, 148, 47);
 }
 
 .container {
@@ -142,12 +142,14 @@ body {
 
         .right {
             background-color: green;
-            //box-shadow: inset 3px 3px rgb(25, 27, 27);
+            box-shadow: inset 3px 3px rgb(25, 27, 27);
         }
         
         .wrong {
             background-color: palevioletred;
-            //box-shadow: inset 3px 3px rgb(25, 27, 27);
+            transition: box-shadow 0.05s ease-in;
+            transform: translate(-1px, -1px);
+            box-shadow: inset 3px 3px rgb(25, 27, 27);
         }
 
         .next {
