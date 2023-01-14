@@ -383,4 +383,4 @@ const Data = [
     ]
   ];
   
-  export default birdsData;
+  export default Data;

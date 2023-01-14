@@ -36,6 +36,21 @@ body {
   background-color: floralwhite;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 24px;
+  background-color: #ECE1D8;
+  box-shadow: 5px 5px rgb(25, 27, 27);
+  transition: 0.5s;
+}
+
+.button:active {
+  box-shadow: 0;
+}
+
 .disable {
   display: none;
 }
@@ -123,18 +138,16 @@ body {
   background-color: darkgrey;
 }
 .main .options-list .option {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
   margin-bottom: 20px;
-  height: 40px;
-  max-width: 300px;
-  font-size: 24px;
-  background-color: #ECE1D8;
-  box-shadow: 5px 5px rgb(25, 27, 27);
 }
-.main .options-list .option:last-child {
+.main .options-list .right {
+  background-color: green;
+}
+.main .options-list .wrong {
+  background-color: palevioletred;
+}
+.main .options-list .next {
   margin-top: 50px;
 }
 .main .progress-bar {

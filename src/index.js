@@ -1,9 +1,10 @@
 import './style.scss'
 import './welcome.js'
-import './db_detective.js'
+import Data from './db_detective.js'
 
 const options_list = document.getElementsByClassName('option-list');
-
+const step = 0;
+const winOption = getRandomWinOption(step);
 
 const query = []
 
@@ -18,13 +19,18 @@ function getRandomWinOption(step) {
     return Data[step][Math.ceil(Math.random()*6)];
 }
 
-function init() {
-    const step = 0;
-
-    const winOption = getRandomWinOption(step);
-    
+function optionClick(event) {
+    event.target.innerHTML == winOption.name ? 
+        event.target.classList.add('right') :
+        event.target.classList.add('wrong');
 }
 
-Data
+function init() {    
+    const options = document.querySelectorAll('.option');
 
+    options.forEach(item => item.addEventListener('click', optionClick));
+    console.log(winOption);
+}
+
+init();
 console.log(query);

@@ -19,6 +19,28 @@ body {
     background-color: floralwhite;
 }
 
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    //max-width: 300px;
+    font-size: 24px;
+    background-color: #ECE1D8;
+    box-shadow: 5px 5px rgb(25, 27, 27);
+    transition: 1s;
+}
+
+.button:active {
+    transform: translate(-1px, -1px);
+    box-shadow: 0 0 rgb(25, 27, 27);
+    //box-shadow: inset 3px 3px rgb(25, 27, 27);
+}
+
+.button:visited {
+    box-shadow: inset 3px 3px rgb(25, 27, 27);
+}
+
 .disable {
     display: none;
 }
@@ -114,19 +136,21 @@ body {
         background-color: darkgrey;
 
         .option {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: auto;
             margin-bottom: 20px;
-            height: 40px;
-            max-width: 300px;
-            font-size: 24px;
-            background-color: #ECE1D8;
-            box-shadow: 5px 5px rgb(25, 27, 27);
         }
 
-        .option:last-child {
+        .right {
+            background-color: green;
+            //box-shadow: inset 3px 3px rgb(25, 27, 27);
+        }
+        
+        .wrong {
+            background-color: palevioletred;
+            //box-shadow: inset 3px 3px rgb(25, 27, 27);
+        }
+
+        .next {
             margin-top: 50px;
         }
     }
