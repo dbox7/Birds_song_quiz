@@ -132,6 +132,14 @@ body {
   margin: 20px auto 0;
   background-color: aliceblue;
 }
+.main .task .player .player__button {
+  width: 40px;
+  border: 1px solid rgb(25, 27, 27);
+  border-radius: 50%;
+}
+.main .task .player .player__button .player__icon {
+  width: 100%;
+}
 .main .options-list {
   list-style-type: none;
   margin-block-start: 0;

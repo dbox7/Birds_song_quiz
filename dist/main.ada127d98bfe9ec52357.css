@@ -36,8 +36,28 @@ body {
   background-color: floralwhite;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 24px;
+  background-color: #ECE1D8;
+  box-shadow: 5px 5px rgb(25, 27, 27);
+  transition: box-shadow 0.1s ease-in-out, transform 0.01s ease-in;
+}
+
+.button:active {
+  transform: translate(-1px, -1px);
+  box-shadow: 0 0 rgb(25, 27, 27);
+}
+
 .disable {
   display: none;
+}
+
+.active {
+  background-color: rgb(224, 148, 47);
 }
 
 .container {
@@ -103,7 +123,6 @@ body {
   height: 45vw;
   min-height: 150px;
   max-height: 500px;
-  background-color: aliceblue;
 }
 .main .task .player {
   display: flex;
@@ -112,6 +131,21 @@ body {
   height: 40px;
   margin: 20px auto 0;
   background-color: aliceblue;
+}
+.main .task .player .player__button {
+  min-width: 40px;
+  border: 1px solid rgb(25, 27, 27);
+  border-radius: 50%;
+  background-image: url(29dfca760121549846fe.svg);
+  background-size: 30px;
+  background-position: 70% 50%;
+}
+.main .task .player .player__progress-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  margin-left: 10px;
+  background-color: aqua;
 }
 .main .options-list {
   list-style-type: none;
@@ -123,18 +157,20 @@ body {
   background-color: darkgrey;
 }
 .main .options-list .option {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
   margin-bottom: 20px;
-  height: 40px;
-  max-width: 300px;
-  font-size: 24px;
-  background-color: #ECE1D8;
-  box-shadow: 5px 5px rgb(25, 27, 27);
 }
-.main .options-list .option:last-child {
+.main .options-list .right {
+  background-color: green;
+  box-shadow: inset 3px 3px rgb(25, 27, 27);
+}
+.main .options-list .wrong {
+  background-color: palevioletred;
+  transition: box-shadow 0.05s ease-in;
+  transform: translate(-1px, -1px);
+  box-shadow: inset 3px 3px rgb(25, 27, 27);
+}
+.main .options-list .next {
   margin-top: 50px;
 }
 .main .progress-bar {
