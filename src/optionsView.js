@@ -42,8 +42,11 @@ export class optionsView {
         const activeNav = document.getElementsByClassName('active');
         if (activeNav[0].nextElementSibling) {
             activeNav[0].nextElementSibling.classList.add('active');
-        }
-        activeNav[0].classList.remove('active');
+            activeNav[0].classList.remove('active');
+        } else {
+            activeNav[0].parentElement.children[0].classList.add('active');
+            activeNav[1].classList.remove('active');
+        }        
         let res = this.controller.nextClick();
         document.getElementsByTagName('audio')[0].src = this.controller.getWinOption().audio;
         if (res) {
@@ -52,7 +55,15 @@ export class optionsView {
                 item.classList.remove('right');
                 item.innerHTML = res[idx].name;
             })
+        } else {
+            this.renderGameOver();
         }
+    }
+
+    renderGameOver() {
+        const welcomeBlock = document.querySelector('.welcome__info');
+        Array.from(welcomeBlock.children).forEach(item => item.classList.toggle('disable'));
+        document.querySelector('.welcome').classList.remove('disable');
     }
 
     render() {

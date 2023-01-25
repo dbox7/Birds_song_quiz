@@ -17,6 +17,6 @@ export class playerModel {
     }
 
     progress(audio) {
-        return `${audio.currentTime * 100 / audio.duration}%`;
+        return audio.currentTime * 100 / audio.duration;
     }
 }

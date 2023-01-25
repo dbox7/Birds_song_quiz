@@ -1,23 +1,5 @@
 @import 'welcome.scss';
-
-$contairer-width: 1160px;
-$black: rgb(25, 27, 27);
-$border: 1px solid $black;
-
-@mixin shadow($x, $y, $inset: false) {
-    @if $inset {
-        box-shadow: inset $x $y $black;
-    } @else {
-        box-shadow: $x $y $black;
-    }   
-}
-
-@mixin list-default {
-    list-style-type: none;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-}
+@import 'constants.scss';
 
 * {
     box-sizing: border-box;
@@ -25,18 +7,21 @@ $border: 1px solid $black;
 
 body {
     margin: auto;
-    background-color: floralwhite;
+    background-color: $backgroundColor;
 }
 
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
+
     height: 40px;
-    //max-width: 300px;
+    border-radius: 3px;
     font-size: 24px;
     cursor: pointer;
-    background-color: #ECE1D8;
+
+    border: $border;
+    background-color: $backgroundColor;
     @include shadow(5px, 5px);
     transition: box-shadow 0.1s ease-in-out, transform 0.01s ease-in;
 }
@@ -48,10 +33,6 @@ body {
 
 .disable {
     display: none;
-}
-
-.active {
-    background-color: rgb(224, 148, 47);
 }
 
 .container {
@@ -68,7 +49,7 @@ body {
 }
 
 .header {
-    background-color: aliceblue;
+    background-color: $backgroundHeader;
     padding: 20px;
 
     border: $border;
@@ -82,7 +63,10 @@ body {
 .nav {
 
     border-right: $border;
-    border-bottom: $border;
+    border-bottom: 2px solid $black;
+    border-left: $border;
+
+    background-color: $backgroundHeader;
 
     .ul-nav {
         display: flex;
@@ -92,19 +76,29 @@ body {
         width: 100%;
     
         margin-top: 20px;
-        background-color: floralwhite;
+        
     
         @include list-default;
     
         li {
             flex: 3;
             text-align: center;
+
             cursor: pointer;
             padding: 10px;
-            min-width: 120px;
-            
+            min-width: 150px;
             border-top: $border;
             border-left: $border;
+
+            background-color: $navBtnInactive;
+        }
+        
+        li:last-child {
+            border-right: $border;
+        }
+
+        li.active {
+            background-color: $navBtnActive;
         }
     
     }
@@ -113,61 +107,80 @@ body {
 
 .main {
     padding: 10px 30px;
-    background-color: #ECE1D8;
+    background-color: $backgroundColor;
 
     .task {
         width: 55%;
         min-width: 150px;
-        background-color: darkgrey;
 
         .poster {
             width: 100%;
             height: 45vw;
             min-height: 150px;
             max-height: 500px;
-            //background-color: aliceblue;
+            
+            border: $border;
+            @include shadow(5px, 5px, false);
         }
 
         .player {
             display: flex;
+            align-items: center;
             width: 70%;
             min-width: 150px;
             height: 40px;
             margin: 20px auto 0;
-            background-color: aliceblue;
 
             .player__button {
+                height: 100%;
                 min-width: 40px;
                 cursor: pointer;
                 border: $border;
                 border-radius: 50%;
-                background-image: url(play.svg);
+                background: url(play.svg);
                 background-size: 30px;
                 background-position: 70% 50%;
             }
 
             .paused {
                 background-image: url(pause.svg);
-                background-position: 50% 50%;
+                background-position: 45% 45%;
             }
 
             .player__progress-bar {
                 display: flex;
                 position: relative;
+
+                //top: 1px;
                 width: 100%;
-                height: 10px;
-                margin-left: 10px;
-                background-color: aqua;
+                height: 9px;
+                margin-left: 15px;
+                border-radius: 3px;
+
+                border: $border;
+                background-color: $black;
             }
+
+            .back-bar {
+                width: 0;
+                height: 7px;
+                border-radius: 2px;
+                margin-left: 0;
+
+                background-color: $blue; 
+             }
 
             .player__progress-pointer{
                 position: absolute;
-                top: -3px;
-                width: 15px;
-                height: 15px;
-                background-color: aquamarine;
-                border: $border;
+
+                top: -6px;
+                left: -1px;
+                width: 19px;
+                height: 19px;
                 border-radius: 50%;
+
+                background-color: $blue;
+                border: $border;
             }
         }
     }
@@ -176,7 +189,6 @@ body {
         @include list-default;
         width: 40%;
         min-width: 150px;
-        background-color: darkgrey;
 
         .option {
             margin: auto;
@@ -184,13 +196,13 @@ body {
         }
 
         .right {
-            background-color: green;
+            background-color: $right;
             transform: translate(-1px, -1px);
             @include shadow(3px, 3px, true);
         }
         
         .wrong {
-            background-color: palevioletred;
+            background-color: $wrong;
             transition: box-shadow 0.05s ease-in;
             transform: translate(-1px, -1px);
             @include shadow(3px, 3px, true);
@@ -198,6 +210,8 @@ body {
 
         .next {
             margin-top: 50px;
+
+            background-color: $blue;
         }
     }
 
@@ -218,7 +232,19 @@ body {
     
 }
 
-@media all and (max-width: 610px) {
+@media all and (max-width: 1160px) {
+
+    .nav {
+        border-left: none;
+        .ul-nav {
+            li:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 720px) {
     .main {
         padding: 10px 15px;
         .task, .options-list {

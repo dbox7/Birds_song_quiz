@@ -11,6 +11,7 @@ export class playerView {
         this.audio = document.createElement('audio');
         this.button = createEl('div', 'player__button');
         this.progressBar = createEl('div', 'player__progress-bar');
+        this.backBar = createEl('div', 'player__progress-bar', 'back-bar');
         this.progressPointer = createEl('div', 'player__progress-pointer');
 
         this.bindListeners();
@@ -24,10 +25,13 @@ export class playerView {
 
     playerBtnClick = () => {
         this.controller.playerPlayPause(this.audio);
+        this.button.classList.toggle('paused');
     }
 
     playing = () => {
-        this.progressBar.style.width = this.controller.progress(this.audio);
+        let offset = this.controller.progress(this.audio);
+        this.backBar.style.width = `${offset}%`;
+        this.progressPointer.style.left = `${offset - 1}%`;
     }
 
     changeProgress = () => {
@@ -40,6 +44,7 @@ export class playerView {
         this.root.appendChild(this.audio);
         this.root.appendChild(this.button);
         this.root.appendChild(this.progressBar);
+        this.progressBar.appendChild(this.backBar);
         this.progressBar.appendChild(this.progressPointer);
     }
 

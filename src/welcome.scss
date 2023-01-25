@@ -1,3 +1,5 @@
+@import 'constants.scss';
+
 .welcome {
     position: absolute;
     display: flex;
@@ -17,7 +19,7 @@
     justify-content: center;
     align-items: center;
     width: 30%;
-    background-color: red;
+    background-color: $backgroundHeader;
 }
 
 .welcome__button {

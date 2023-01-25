@@ -1,0 +1,27 @@
+//Colors
+$backgroundColor: floralwhite;
+$backgroundHeader: #fff6b0;
+$navBtnInactive: #F4A45E;
+$navBtnActive: #E2623D;
+$wrong: #F59097;
+$right: #6fb34e;
+$black: rgb(25, 27, 27);
+$blue: #6FAFC9;
+
+$contairer-width: 1160px;
+$border: 1px solid $black;
+
+@mixin shadow($x, $y, $inset: false) {
+    @if $inset {
+        box-shadow: inset $x $y $black;
+    } @else {
+        box-shadow: $x $y $black;
+    }   
+}
+
+@mixin list-default {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
