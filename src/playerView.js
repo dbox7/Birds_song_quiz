@@ -15,7 +15,7 @@ export class playerView {
         this.progressPointer = createEl('div', 'player__progress-pointer');
 
         this.bindListeners();
-        this.root.innerHTML = 'Loading...';
+        this.root.innerHTML = 'Загрузка...';
         this.loadAudio(this.audio);
     }
 
@@ -30,21 +30,15 @@ export class playerView {
 
     playing = () => {
         let offset = this.controller.progress(this.audio);
+        console.log(offset)
         this.backBar.style.width = `${offset}%`;
-        this.progressPointer.style.left = `${offset - 1}%`;
-        this.audio.addEventListener('ended', () => {
-            this.button.classList.remove('paused');
-        });
+        this.progressPointer.style.left = `${offset - 2}%`;
     }
 
     changeProgress = (event) => {
         const offset = this.controller.changeProgress(event.pageX,
                                                       this.progressBar, 
-                                                      this.progressPointer,
                                                       this.audio);
-        console.log(offset)
-        this.backBar.style.width = `${offset[0]}px`;
-        this.progressPointer.style.left = `${offset[1]}px`;
     }
 
     render = () => {
@@ -59,18 +53,11 @@ export class playerView {
     bindListeners() {
         this.audio.addEventListener('canplaythrough', this.render);
         this.audio.addEventListener('timeupdate', this.playing);
+        this.audio.addEventListener('ended', () => {
+            this.button.classList.remove('paused');
+        });
         this.button.addEventListener('click', this.playerBtnClick);
         this.progressBar.addEventListener('click', this.changeProgress);
-        this.backBar.addEventListener('click', this.changeProgress);
         this.progressPointer.addEventListener('click', this.movePointer);
-    }
-}
-
-export class options {
-    test;
-
-    constructor() {
-        this.test = 10;
-        console.log(this.test);
     }
 }

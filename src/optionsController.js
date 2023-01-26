@@ -15,6 +15,14 @@ export class optionsController {
         return this.model.getAllOptionsByStep();
     }
 
+    getScore() {
+        return this.model.getScore();
+    }
+
+    getBtnStatus() {
+        return this.model.getBtnStatus();
+    }
+
     optionBtnClick(event) {
         if (!this.model.getBtnStatus()) {
             return this.model.ifSuccess(event);

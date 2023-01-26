@@ -27,9 +27,9 @@ export class playerController {
         return this.model.progress(audio);
     }
 
-    changeProgress(pageX, progressBar, pointer, audio) {
-        if (pageX && progressBar && pointer && audio) {
-            return this.model.changeProgress(pageX, progressBar, pointer, audio);
+    changeProgress(pageX, progressBar, audio) {
+        if (pageX && progressBar && audio) {
+            return this.model.changeProgress(pageX, progressBar, audio);
         }
     }
 }

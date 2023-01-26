@@ -11,6 +11,8 @@ $blue: #6FAFC9;
 $contairer-width: 1160px;
 $border: 1px solid $black;
 
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;800&display=swap');
+
 @mixin shadow($x, $y, $inset: false) {
     @if $inset {
         box-shadow: inset $x $y $black;

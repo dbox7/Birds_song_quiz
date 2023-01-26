@@ -20,12 +20,8 @@ export class playerModel {
         return audio.currentTime * 100 / audio.duration;
     }
 
-    changeProgress(pageX, progressBar, pointer, audio) {
+    changeProgress(pageX, progressBar, audio) {
         const progBarWidth = Math.abs(pageX - progressBar.offsetLeft);
-        const pointerLeft = progBarWidth - pointer.offsetWidth / 2;
-        console.log(audio.currentTime)
         audio.currentTime = audio.duration * (progBarWidth / progressBar.offsetWidth);
-        console.log(audio.currentTime)
-        return [progBarWidth, pointerLeft];
     }
 }

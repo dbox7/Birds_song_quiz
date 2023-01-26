@@ -12,9 +12,9 @@ export class optionsView {
 
         this.options = [];
         for (let i = 0; i < 6; i++) {
-            const li = createEl('li', 'button', 'option');
-            li.innerHTML = this.controller.getAllOptionsByStep()[i].name;
-            this.options.push(li);
+            const optionBtn = createEl('button', 'button', 'option');
+            optionBtn.innerHTML = this.controller.getAllOptionsByStep()[i].name;
+            this.options.push(optionBtn);
         }
         this.nextButton = createEl('li', 'button', 'next');
         this.nextButton.innerHTML = 'Next';
@@ -29,7 +29,7 @@ export class optionsView {
             if (res.length != 0) {
                 console.log(res)
                 event.target.classList.add('right');
-                document.querySelector('.score').innerHTML = `Score: ${res[0]}`;
+                document.querySelector('.score').innerHTML = `Счёт: ${res[0]}`;
                 document.querySelector('.poster').src = res[1];
             } else {
                 event.target.classList.add('wrong');
@@ -43,7 +43,7 @@ export class optionsView {
         player.children[1].classList.remove('paused');
         player.children[0].src = this.controller.getWinOption().audio;
         player.children[2].children[0].style.width = '0';
-        player.children[2].children[1].style.left = '-1px';
+        player.children[2].children[1].style.left = '-10px';
     }
 
     updateNav() {
@@ -66,21 +66,25 @@ export class optionsView {
     }
 
     nextClick = () => {
-        document.querySelector('.poster').src = poster;
-        this.updatePlayer();
-        this.updateNav();
-        let res = this.controller.nextClick();
-        if (res) {
-            this.updateOptionsList(res);
-        } else {
-            this.renderGameOver();
+        if (this.controller.getBtnStatus()) {
+            document.querySelector('.poster').src = poster;
+            this.updatePlayer();
+            this.updateNav();
+            let res = this.controller.nextClick();
+            if (res) {
+                this.updateOptionsList(res);
+            } else {
+                this.renderGameOver();
+            }
         }
     }
 
     renderGameOver() {
         const welcomeBlock = document.querySelector('.welcome__info');
+        console.log(welcomeBlock.parentElement)
         Array.from(welcomeBlock.children).forEach(item => item.classList.toggle('disable'));
-        document.querySelector('.welcome').classList.remove('disable');
+        welcomeBlock.parentElement.classList.remove('disable');
+        welcomeBlock.children[2].innerHTML = `Ваш счет: ${this.controller.getScore()}`;
     }
 
     render() {

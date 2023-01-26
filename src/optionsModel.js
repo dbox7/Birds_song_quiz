@@ -1,4 +1,5 @@
 import { winOption } from "./app";
+import { WinOption } from "./winOption";
 
 export class optionsModel {
 
@@ -12,6 +13,10 @@ export class optionsModel {
 
     getBtnStatus() {
         return winOption.getBtnStatus();
+    }
+
+    getScore() {
+        return winOption.getScore();
     }
 
     ifSuccess(event) {  
