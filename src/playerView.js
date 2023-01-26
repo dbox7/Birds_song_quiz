@@ -32,11 +32,19 @@ export class playerView {
         let offset = this.controller.progress(this.audio);
         this.backBar.style.width = `${offset}%`;
         this.progressPointer.style.left = `${offset - 1}%`;
+        this.audio.addEventListener('ended', () => {
+            this.button.classList.remove('paused');
+        });
     }
 
-    changeProgress = () => {
-        console.log('change');
-        console.log(options.test);
+    changeProgress = (event) => {
+        const offset = this.controller.changeProgress(event.pageX,
+                                                      this.progressBar, 
+                                                      this.progressPointer,
+                                                      this.audio);
+        console.log(offset)
+        this.backBar.style.width = `${offset[0]}px`;
+        this.progressPointer.style.left = `${offset[1]}px`;
     }
 
     render = () => {
@@ -53,6 +61,7 @@ export class playerView {
         this.audio.addEventListener('timeupdate', this.playing);
         this.button.addEventListener('click', this.playerBtnClick);
         this.progressBar.addEventListener('click', this.changeProgress);
+        this.backBar.addEventListener('click', this.changeProgress);
         this.progressPointer.addEventListener('click', this.movePointer);
     }
 }

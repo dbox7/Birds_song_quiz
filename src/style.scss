@@ -56,7 +56,11 @@ body {
     border-bottom: none;
 
     .logo {
-        font-size: 25px;
+        font-size: 36px;
+    }
+
+    .score {
+        font-size: 24px;
     }
 }
 
@@ -83,10 +87,11 @@ body {
         li {
             flex: 3;
             text-align: center;
-
             cursor: pointer;
+            
             padding: 10px;
             min-width: 150px;
+            font-size: 18px;
             border-top: $border;
             border-left: $border;
 
@@ -104,21 +109,22 @@ body {
     }
 }
 
-
 .main {
-    padding: 10px 30px;
+    padding: 20px;
     background-color: $backgroundColor;
 
     .task {
         width: 55%;
         min-width: 150px;
+        min-height: 300px;
 
         .poster {
             width: 100%;
-            height: 45vw;
+            height: 100%;
             min-height: 150px;
             max-height: 500px;
-            
+
+            object-fit: cover;
             border: $border;
             @include shadow(5px, 5px, false);
         }
@@ -151,7 +157,6 @@ body {
                 display: flex;
                 position: relative;
 
-                //top: 1px;
                 width: 100%;
                 height: 9px;
                 margin-left: 15px;
@@ -167,7 +172,8 @@ body {
                 border-radius: 2px;
                 margin-left: 0;
 
-                background-color: $blue; 
+                background-color: $blue;
+                transition: all 0.5s ease; 
              }
 
             .player__progress-pointer{
@@ -181,6 +187,7 @@ body {
 
                 background-color: $blue;
                 border: $border;
+                transition: all 0.5s ease;
             }
         }
     }
@@ -249,7 +256,6 @@ body {
         padding: 10px 15px;
         .task, .options-list {
             width: 100%;
-            //min-width: 150px;
         }
 
         .task {
@@ -259,6 +265,7 @@ body {
 
             .player {
                 width: 80%;
+                margin: 20px auto;
             }
         }
     }

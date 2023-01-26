@@ -1,6 +1,6 @@
 import { optionsController } from './optionsController.js';
 import { createEl } from './app.js';
-import poster from './img32.jpg';
+import poster from './default.jpg';
 
 export class optionsView {
     root;
@@ -37,8 +37,16 @@ export class optionsView {
         }
     }
 
-    nextClick = () => {
-        document.querySelector('.poster').src = poster;
+    updatePlayer() {
+        const player = document.querySelector('.player');
+        console.log(player.children);
+        player.children[1].classList.remove('paused');
+        player.children[0].src = this.controller.getWinOption().audio;
+        player.children[2].children[0].style.width = '0';
+        player.children[2].children[1].style.left = '-1px';
+    }
+
+    updateNav() {
         const activeNav = document.getElementsByClassName('active');
         if (activeNav[0].nextElementSibling) {
             activeNav[0].nextElementSibling.classList.add('active');
@@ -47,14 +55,23 @@ export class optionsView {
             activeNav[0].parentElement.children[0].classList.add('active');
             activeNav[1].classList.remove('active');
         }        
+    }
+
+    updateOptionsList(res) {
+        this.options.forEach((item, idx) => {
+            item.classList.remove('wrong');
+            item.classList.remove('right');
+            item.innerHTML = res[idx].name;
+        })
+    }
+
+    nextClick = () => {
+        document.querySelector('.poster').src = poster;
+        this.updatePlayer();
+        this.updateNav();
         let res = this.controller.nextClick();
-        document.getElementsByTagName('audio')[0].src = this.controller.getWinOption().audio;
         if (res) {
-            this.options.forEach((item, idx) => {
-                item.classList.remove('wrong');
-                item.classList.remove('right');
-                item.innerHTML = res[idx].name;
-            })
+            this.updateOptionsList(res);
         } else {
             this.renderGameOver();
         }
