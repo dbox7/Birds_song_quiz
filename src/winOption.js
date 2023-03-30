@@ -29,6 +29,14 @@ export class WinOption {
         this.#step += 1;
     }
 
+    defaultStep() {
+        this.#step = -1;
+    }
+
+    defaultScore() {
+        this.#score = 0;
+    }
+
     getBtnStatus() {
         return this.#btnLock;
     }

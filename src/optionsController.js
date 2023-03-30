@@ -23,6 +23,10 @@ export class optionsController {
         return this.model.getBtnStatus();
     }
 
+    toDefault() {
+        return this.model.toDefault();
+    }
+
     optionBtnClick(event) {
         if (!this.model.getBtnStatus()) {
             return this.model.ifSuccess(event);

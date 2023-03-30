@@ -1,5 +1,6 @@
 import { optionsController } from './optionsController.js';
 import { createEl } from './app.js';
+import { gameover } from './welcome.js';
 import poster from './default.jpg';
 
 export class optionsView {
@@ -27,7 +28,6 @@ export class optionsView {
         let res = this.controller.optionBtnClick(event);
         if (res) {    
             if (res.length != 0) {
-                console.log(res)
                 event.target.classList.add('right');
                 document.querySelector('.score').innerHTML = `Счёт: ${res[0]}`;
                 document.querySelector('.poster').src = res[1];
@@ -39,7 +39,6 @@ export class optionsView {
 
     updatePlayer() {
         const player = document.querySelector('.player');
-        console.log(player.children);
         player.children[1].classList.remove('paused');
         player.children[0].src = this.controller.getWinOption().audio;
         player.children[2].children[0].style.width = '0';
@@ -69,22 +68,16 @@ export class optionsView {
         if (this.controller.getBtnStatus()) {
             document.querySelector('.poster').src = poster;
             this.updatePlayer();
-            this.updateNav();
             let res = this.controller.nextClick();
             if (res) {
                 this.updateOptionsList(res);
+                this.updateNav();
             } else {
-                this.renderGameOver();
+                gameover(this.controller.getScore());
+                this.controller.toDefault();
+                this.nextClick();
             }
         }
-    }
-
-    renderGameOver() {
-        const welcomeBlock = document.querySelector('.welcome__info');
-        console.log(welcomeBlock.parentElement)
-        Array.from(welcomeBlock.children).forEach(item => item.classList.toggle('disable'));
-        welcomeBlock.parentElement.classList.remove('disable');
-        welcomeBlock.children[2].innerHTML = `Ваш счет: ${this.controller.getScore()}`;
     }
 
     render() {

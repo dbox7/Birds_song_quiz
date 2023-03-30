@@ -1,5 +1,4 @@
 import { winOption } from "./app";
-import { WinOption } from "./winOption";
 
 export class optionsModel {
 
@@ -17,6 +16,11 @@ export class optionsModel {
 
     getScore() {
         return winOption.getScore();
+    }
+
+    toDefault() {
+        winOption.defaultStep();
+        winOption.defaultScore();
     }
 
     ifSuccess(event) {  

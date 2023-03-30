@@ -30,15 +30,31 @@ export class playerView {
 
     playing = () => {
         let offset = this.controller.progress(this.audio);
-        console.log(offset)
         this.backBar.style.width = `${offset}%`;
         this.progressPointer.style.left = `${offset - 2}%`;
     }
 
     changeProgress = (event) => {
-        const offset = this.controller.changeProgress(event.pageX,
-                                                      this.progressBar, 
-                                                      this.audio);
+        this.controller.changeProgress(event.pageX,
+                                    this.progressBar, 
+                                    this.audio);
+    }
+
+    changeWidth = (event) => {
+        if ((this.progressPointer.offsetLeft < this.progressBar.offsetWidth) 
+            && (event.pageX > this.progressBar.offsetLeft)) {
+            this.changeProgress(event);
+        }
+        this.progressBar.addEventListener('click', this.changeProgress);
+    }
+
+    movePointer = () => {
+        this.progressBar.removeEventListener('click', this.changeProgress);
+        document.addEventListener('mousemove', this.changeWidth);
+    
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', this.changeWidth);
+        });
     }
 
     render = () => {
@@ -58,6 +74,6 @@ export class playerView {
         });
         this.button.addEventListener('click', this.playerBtnClick);
         this.progressBar.addEventListener('click', this.changeProgress);
-        this.progressPointer.addEventListener('click', this.movePointer);
+        this.progressPointer.addEventListener('mousedown', this.movePointer);
     }
 }
