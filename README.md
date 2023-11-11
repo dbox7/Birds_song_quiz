@@ -1,4 +1,4 @@
-## [SongBird](https://dbox7.github.io/MovieQuiz/dist/)
+## [SongBird](https://dbox7.github.io/Birds_song_quiz/dist/)
 ### Сайт-викторина, который предлагает вам угадать птицу по ее пению
 
 __Технологии:__
@@ -17,4 +17,4 @@ __Технологии:__
 
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/110292281/228948761-a76f1f11-285c-44bb-8f69-6deb8d24f34c.png">
 
-[Деплой тут](https://dbox7.github.io/MovieQuiz/dist/)
+[Деплой тут](https://dbox7.github.io/Birds_song_quiz/dist/)
